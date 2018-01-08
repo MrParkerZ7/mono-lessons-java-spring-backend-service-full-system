@@ -1,0 +1,37 @@
+zuul:
+  #Service will be mapped under the /api URI
+  prefix: /api
+  routes:
+    eureka-server:
+      path: /server/**
+      url: BACKEND-SERVICE # We can define by url by using serviceId if using eureka | replace url: http://localhost:****
+        # url :: support for one service which you specify only url you want || url: http://localhost:****
+        # url with app name :: support for multiple all service which running || url: EUREKA-SERVER
+    eureka-client:
+      path: /client/**
+      url: EUREKA-CLIENT
+      #serviceId: EUREKA-CLIENT # Or we can define serviceId
+        # serviceId :: support for single service with no define url || serviceId: EUREKA-CLIENT
+        # but must have only one service with this serviceId running otherwise error 500 be occur
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+  instance:
+    hostname: localhost
+server:
+  port: 8080
+
+spring:
+  application:
+    name: zuul-service
+
+# Increase the Hystrix timeout to 60s (for all)
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 5000
