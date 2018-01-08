@@ -24,10 +24,10 @@ public class PersonLoader implements CommandLineRunner {
                 new Person("AF89EF", "User", "1234", "Park",
                         new Status(true, true, true, true),
                         Arrays.asList("USER")),
-                new Person("AF89EF", "Admin", "1234", "Ark",
+                new Person("G8A12C", "Admin", "1234", "Ark",
                         new Status(true, true, true, true),
                         Arrays.asList("ADMIN")),
-                new Person("AF89EF", "Boss", "1234", "Frank",
+                new Person("O8AD7H", "Boss", "1234", "Frank",
                         new Status(true, true, true, true),
                         Arrays.asList("USER", "ADMIN"))
         );
